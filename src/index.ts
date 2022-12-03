@@ -11,7 +11,7 @@ document.getElementById("app").innerHTML = `
 function multpler(num: number) {
   return num * 2;
 }
-console.log(multpler(2));
+console.log(`multipler ${multpler(2)}`);
 
 function sumOfArray(arr: number[]) {
   return arr.reduce((acc, curr) => {
@@ -19,4 +19,11 @@ function sumOfArray(arr: number[]) {
   }, 0);
 }
 
-console.log(sumOfArray([1, 2, 3, 4]));
+function sumAr(arr: Array<number>) {
+  return arr.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
+}
+
+console.log(`sum of array is ${sumOfArray([1, 2, 3, 4])}`);
+console.log(`sum of ar is  ${sumAr([1, 2, 3, 4])}`);
