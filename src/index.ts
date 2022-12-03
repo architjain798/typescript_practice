@@ -208,7 +208,7 @@ const ebook: Ebook = {
   fileSize: 500,
   format: "mp4"
 };
-console.log("ebokk is " + JSON.stringify(ebook));
+console.log("ebook is " + JSON.stringify(ebook));
 
 const audioBook: AudioBook = {
   duration: 30,
@@ -223,11 +223,11 @@ console.log();
 console.log();
 console.log();
 console.log();
-
-console.log(" ----------------------------------------------------");
+console.log();
 
 //9
-//TYPE 9 ADD PROPERTY IN INTERFACE
+//TYPE 9 MERGING OF INTERFACE
+console.log("TYPE 9 MERGING OF INTERFACE");
 
 interface Car {
   name: string;
@@ -242,3 +242,68 @@ const car: Car = {
   numberOfWheels: 4
 };
 console.log("Car is " + JSON.stringify(car));
+
+// type ke andar interface jisi merging possible nhi hai
+// par interface ke andar primitives(string,number ,...) use nhi krte kunki interface are for objects
+
+/*
+type SantiziedString = string;
+type EvenNumber = string;
+
+interface SantiziedString extends string
+*/
+
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+
+// ----------------------------------------------------
+
+// TYPE 10
+console.log("TYPE 10 UNIONS");
+
+type CardId = number | string;
+
+//NARROWING
+function printCardId(cardId: CardId) {
+  if (typeof cardId === "string") {
+    console.log(cardId.toUpperCase());
+  } else {
+    console.log(cardId);
+  }
+}
+console.log(printCardId(123));
+console.log(printCardId("acbdrf"));
+
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+
+// ----------------------------------------------------
+
+// TYPE 11
+console.log(`TYPE 11 union in function `);
+
+// union in function
+
+function getFirstThree(x: string | number[]) {
+  return x.slice(0, 3);
+}
+
+console.log(getFirstThree("12345"));
+console.log(getFirstThree([1, 2, 3, 4, 5, 6]));
+
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+
+// ----------------------------------------------------
+
+// TYPE 12
+console.log("TYPE 12 GENERICS");
