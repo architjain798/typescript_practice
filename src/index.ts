@@ -224,6 +224,21 @@ console.log();
 console.log();
 console.log();
 
-console.log(// ----------------------------------------------------);
+console.log(" ----------------------------------------------------");
 
+//9
+//TYPE 9 ADD PROPERTY IN INTERFACE
 
+interface Car {
+  name: string;
+  price: number;
+}
+interface Car {
+  numberOfWheels: number;
+}
+const car: Car = {
+  name: "swift",
+  price: 122323,
+  numberOfWheels: 4
+};
+console.log("Car is " + JSON.stringify(car));
