@@ -134,8 +134,96 @@ type ID = number | string;
 const userId: ID = 1234;
 console.log(userId);
 
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+
 // ----------------------------------------------------
 
 // TYPE 7
 
 console.log("TYPE 7 INTERFACE");
+
+interface Transaction {
+  payerAccountNumber: number;
+  payeeAccountNumber: number;
+}
+
+interface BankAccount {
+  accountNumber: number;
+  accountHolder: string;
+  balance: number;
+  isActive: boolean;
+  transcations: Transaction[];
+}
+
+const bankAccount: BankAccount = {
+  accountNumber: 123,
+  accountHolder: "deepak",
+  balance: 4000,
+  isActive: true,
+  transcations: [
+    { payerAccountNumber: 123, payeeAccountNumber: 456 },
+    { payerAccountNumber: 123, payeeAccountNumber: 567 }
+  ]
+};
+console.log(bankAccount);
+
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+
+// ----------------------------------------------------
+
+// TYPE 8
+console.log("TYPE 8 EXTENDING OF INTERFACE");
+
+interface Book {
+  name: string;
+  price: number;
+}
+
+interface Ebook extends Book {
+  fileSize: number;
+  format: string;
+}
+
+interface AudioBook extends Ebook {
+  duration: number;
+}
+
+const book: Book = {
+  name: "rd sharma",
+  price: 120
+};
+console.log("book ", book);
+
+const ebook: Ebook = {
+  name: "amazon audio book",
+  price: 999,
+  fileSize: 500,
+  format: "mp4"
+};
+console.log("ebokk is " + JSON.stringify(ebook));
+
+const audioBook: AudioBook = {
+  duration: 30,
+  fileSize: 450,
+  format: "mp4",
+  name: "sachin ",
+  price: 99
+};
+console.log("audiobook " + JSON.stringify(audioBook));
+
+console.log();
+console.log();
+console.log();
+console.log();
+
+console.log(// ----------------------------------------------------);
+
+
