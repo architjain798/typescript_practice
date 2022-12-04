@@ -323,7 +323,7 @@ console.log();
 
 // ----------------------------------------------------
 // TYPE 13
-console.log("TYPE 12 GENERIC-2");
+console.log("TYPE 13 GENERIC-2");
 
 interface HasAge {
   age: number;
@@ -345,5 +345,8 @@ const players: Player[] = [
   { name: "monu", age: 34 }
 ];
 
+// ASSERTION IS LIKE TYPE CASTING
+
 // console.log(getOldest((Player)people).age);
-console.log(getOldest(players).name);
+const oldestPerson = getOldest(players) as HasAge;
+console.log(oldestPerson.age);
