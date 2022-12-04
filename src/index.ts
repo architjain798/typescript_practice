@@ -329,11 +329,11 @@ interface HasAge {
   age: number;
 }
 
-function getOldest(people: Player[]): Player {
+function getOldest<T extends HasAge>(people: T[]): T {
   return people.sort((a, b) => b.age - a.age)[0];
 }
 
-const people = [{ age: 30 }, { age: 45 }, { age: 10 }];
+const people: HasAge[] = [{ age: 30 }, { age: 45 }, { age: 10 }];
 
 interface Player extends HasAge {
   name: string;
@@ -348,5 +348,60 @@ const players: Player[] = [
 // ASSERTION IS LIKE TYPE CASTING
 
 // console.log(getOldest((Player)people).age);
-const oldestPerson = getOldest(players) as HasAge;
-console.log(oldestPerson.age);
+// const oldestPerson = getOldest(players) as HasAge;
+// console.log(oldestPerson.age);
+
+console.log(getOldest(people));
+console.log(getOldest(players));
+
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+
+// ----------------------------------------------------
+// TYPE 14
+console.log("TYPE 14 GENERIC-3");
+
+interface Insaan {
+  name: string;
+  age: number;
+  city: string;
+}
+
+interface IPost{
+  title:string;
+  id:number;
+  description:string
+}
+
+const fetchUser = async (path: string): Promise<Insaan[]> => {
+  const response = await fetch(`www.api.com${path}`);
+  return response.json();
+};
+
+
+const fetchPost = async (path: string): Promise<IPost[]> => {
+  const response = await fetch(`www.api.com${path}`);
+  return response.json();
+};
+
+const fetchDatafromApi = async <T>(path: string): Promise<T[]> => {
+  const response = await fetch(`www.api.com${path}`);
+  return response.json();
+};
+
+
+(async () => {
+  // const userData = await fetchUser("/users");
+  //  userData[0]
+
+  // const postData=await fetchPost("/posts");
+  // postData[0]
+
+  const dataFromApi=await fetchDatafromApi<IPost[]>("/posts");
+  // dataFromApi[0].
+
+})();
+
