@@ -307,3 +307,10 @@ console.log();
 
 // TYPE 12
 console.log("TYPE 12 GENERICS");
+
+function logAnything<T>(args: T): T {
+  console.log(args);
+  return args;
+}
+console.log(logAnything("2323"));
+console.log(logAnything(["12", "12", "12", "90"]));
