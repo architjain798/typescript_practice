@@ -314,3 +314,36 @@ function logAnything<T>(args: T): T {
 }
 console.log(logAnything("2323"));
 console.log(logAnything(["12", "12", "12", "90"]));
+
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+
+// ----------------------------------------------------
+// TYPE 13
+console.log("TYPE 12 GENERIC-2");
+
+interface HasAge {
+  age: number;
+}
+
+function getOldest(people: Player[]): Player {
+  return people.sort((a, b) => b.age - a.age)[0];
+}
+
+const people = [{ age: 30 }, { age: 45 }, { age: 10 }];
+
+interface Player extends HasAge {
+  name: string;
+}
+
+const players: Player[] = [
+  { name: "ramu", age: 23 },
+  { name: "shyam", age: 56 },
+  { name: "monu", age: 34 }
+];
+
+// console.log(getOldest((Player)people).age);
+console.log(getOldest(players).name);
